@@ -9,6 +9,7 @@ let oProvince = {  "QC" : "Québec",
                    "MA" : "Manitoba",
                    "SK" : "Saskashewan",
                    "AL" : "Alberta",
+                   "NF" : "Terre-Neuve",
                    "NB" : "Nouveau-Brunswick"
 }
 /* 
@@ -23,15 +24,32 @@ const contenu_objet_json = (o)=>{
    }
 
 //console.log(contenu_objet_json(oProvince))
-let sProvince = querystring.stringify(contenu_objet_json(oProvince))
-console.log(contenu_objet_json(sProvince))
+//let sProvince = JSON.stringify(contenu_objet_json(oProvince))
+//console.log(contenu_objet_json(sProvince))
+
+const fs = require("fs");
+let provinces
+/* La fonction fs.readFile() est asynchrone elle ne bloque pas l'éxécution des instructions suivantes */
+fs.readFile('provinces.JSON', 'utf8', function (err, data) {
+ if (err) throw err;
+ provinces = JSON.parse(data);
+ console.log(provinces);
+});
+/* «Fin du programme» apparaît avant la lecture du fichier */
+//console.log("Fin du programme");
+
+let tableau = ["QC", "ON", "MA", "SK", "AL", "NF", "NB"];
+
+for(let i = 0; i < 6; i++) {
+
+}
 
 /*const http = require("http"); 
 http.createServer((request, response) =>
 { 
  console.log('branchement sur le port 3000')
- response.writeHead(200, {"Content-Type": "text/html"});
+ response.writeHead(200, {"Content-Type": "text/html; charset=UTF-8"});
  response.write("<h1>Provinces</h1>"); 
- response.write(sProvince); 
+ response.write();
  response.end(); 
 }).listen(3000);*/
