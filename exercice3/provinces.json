@@ -1,9 +1,4 @@
 {
-	"QC" : "Québec",
-	"ON" : "Ontario",
-	"MA" : "Manitoba",
-	"SK" : "Saskashewan",
-	"AL" : "Alberta",
-	"NF" : "Terre-Neuve",
-	"NB" : "Nouveau-Brunswick"
+	"Acronymes": ["QC", "ON", "MA", "SK", "AL", "NF", "NB"],
+	"Provinces": ["Québec", "Ontario", "Manitoba", "Saskashewan", "Alberta", "Terre-Neuve", "Nouveau-Brunswick"]
 }

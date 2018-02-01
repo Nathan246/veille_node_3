@@ -29,27 +29,31 @@ const contenu_objet_json = (o)=>{
 
 const fs = require("fs");
 let provinces
+let html = "<table>";
 /* La fonction fs.readFile() est asynchrone elle ne bloque pas l'éxécution des instructions suivantes */
 fs.readFile('provinces.JSON', 'utf8', function (err, data) {
  if (err) throw err;
  provinces = JSON.parse(data);
- console.log(provinces);
+for(let i = 0; i <= 6; i++) {
+  //console.log(provinces["Acronymes"][i]);
+  html += "<tr><td>" + provinces["Acronymes"][i] + "</td><td>" + provinces["Provinces"][i] + "</td></tr>";
+}
+
+html += "</table>";
+//console.log(html);
+ 
 });
 /* «Fin du programme» apparaît avant la lecture du fichier */
 //console.log("Fin du programme");
 
-let tableau = ["QC", "ON", "MA", "SK", "AL", "NF", "NB"];
 
-for(let i = 0; i < 6; i++) {
 
-}
-
-/*const http = require("http"); 
+const http = require("http"); 
 http.createServer((request, response) =>
 { 
  console.log('branchement sur le port 3000')
  response.writeHead(200, {"Content-Type": "text/html; charset=UTF-8"});
  response.write("<h1>Provinces</h1>"); 
- response.write();
+ response.write(html);
  response.end(); 
-}).listen(3000);*/
+}).listen(3000);
