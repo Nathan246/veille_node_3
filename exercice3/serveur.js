@@ -1,12 +1,14 @@
 'use strict';
+
+const querystring = require("querystring");
 /* 
 on définit un Object litéral qui contient l'ensemble des provinces 
 */
 let oProvince = {  "QC" : "Québec",
                    "ON" : "Ontario",
                    "MA" : "Manitoba",
-                   "SK" : "Saskashewan"
-                   "AL" : "Alberta"
+                   "SK" : "Saskashewan",
+                   "AL" : "Alberta",
                    "NB" : "Nouveau-Brunswick"
 }
 /* 
@@ -20,13 +22,16 @@ const contenu_objet_json = (o)=>{
    return trace;
    }
 
-console.log(contenu_objet_json(oProvince))
-/*
-const http = require("http"); 
+//console.log(contenu_objet_json(oProvince))
+let sProvince = querystring.stringify(contenu_objet_json(oProvince))
+console.log(contenu_objet_json(sProvince))
+
+/*const http = require("http"); 
 http.createServer((request, response) =>
 { 
- console.log('branchement sur le port 8888')
+ console.log('branchement sur le port 3000')
  response.writeHead(200, {"Content-Type": "text/html"});
- response.write("Hello World"); 
+ response.write("<h1>Provinces</h1>"); 
+ response.write(sProvince); 
  response.end(); 
 }).listen(3000);*/
